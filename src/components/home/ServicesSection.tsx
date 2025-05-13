@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Heart, Book, Hospital } from "lucide-react";
+import { Calendar, FileText, Hospital } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -18,7 +18,7 @@ const ServicesSection = () => {
       id: 2,
       title: "Medical Records",
       description: "Access your medical history and test results",
-      icon: Book,
+      icon: FileText,
       link: "/medical-records"
     },
     {

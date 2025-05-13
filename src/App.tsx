@@ -11,6 +11,10 @@ import PolicyDetails from "./pages/PolicyDetails";
 import Appointments from "./pages/Appointments";
 import GovernmentPolicies from "./pages/GovernmentPolicies";
 import AboutUs from "./pages/AboutUs";
+import MedicalRecords from "./pages/MedicalRecords";
+import HospitalServices from "./pages/HospitalServices";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,10 @@ const App = () => (
           <Route path="/policies/government/:id" element={<PolicyDetails />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/medical-records" element={<MedicalRecords />} />
+          <Route path="/services" element={<HospitalServices />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
