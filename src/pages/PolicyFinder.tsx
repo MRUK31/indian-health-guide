@@ -37,6 +37,7 @@ const PolicyFinderPage = () => {
           <h2 className="text-xl font-semibold mb-4">How to Use the Policy Finder</h2>
           <ol className="text-left space-y-2 list-decimal list-inside">
             <li>Enter your monthly income in the field provided</li>
+            <li>Select a medical department/specialty you're interested in</li>
             <li>Click "Find Policies" to see relevant healthcare schemes</li>
             <li>Expand each policy to view detailed eligibility criteria and benefits</li>
             <li>Click "View Details" to learn more about a specific policy</li>
