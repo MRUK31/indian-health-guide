@@ -50,6 +50,9 @@ const ServicesSection = () => {
                   </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
+                <CardContent>
+                  {/* Card content can be added here if needed */}
+                </CardContent>
                 <CardFooter>
                   <Link to={service.link} className="w-full">
                     <Button variant="outline" className="w-full">Learn More</Button>
