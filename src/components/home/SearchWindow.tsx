@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Search, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const doctorSpecialties = [
   { id: 1, name: "Neurosurgeon" },
@@ -17,6 +18,7 @@ const doctorSpecialties = [
 ];
 
 const SearchWindow = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSpecialties, setFilteredSpecialties] = useState(doctorSpecialties);
 
@@ -34,6 +36,15 @@ const SearchWindow = () => {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate(`/doctors?q=${searchQuery}`);
+  };
+
+  const handleSpecialtyClick = (specialty: string) => {
+    navigate(`/doctors?specialty=${specialty}`);
+  };
+
   return (
     <Card className="max-w-md mx-auto">
       <CardHeader>
@@ -43,7 +54,7 @@ const SearchWindow = () => {
         <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="search">Search by specialty</Label>
-            <div className="flex gap-2">
+            <form onSubmit={handleSubmit} className="flex gap-2">
               <Input 
                 id="search" 
                 placeholder="e.g. Cardiologist" 
@@ -53,7 +64,7 @@ const SearchWindow = () => {
               <Button type="submit">
                 <Search className="h-4 w-4" />
               </Button>
-            </div>
+            </form>
           </div>
 
           <div className="grid grid-cols-2 gap-2">
@@ -62,12 +73,10 @@ const SearchWindow = () => {
                 key={specialty.id} 
                 variant="outline" 
                 className="justify-start text-sm"
-                asChild
+                onClick={() => handleSpecialtyClick(specialty.name)}
               >
-                <a href={`/doctors?specialty=${specialty.name}`}>
-                  <User className="mr-2 h-4 w-4" />
-                  {specialty.name}
-                </a>
+                <User className="mr-2 h-4 w-4" />
+                {specialty.name}
               </Button>
             ))}
           </div>

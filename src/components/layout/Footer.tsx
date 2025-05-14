@@ -16,7 +16,7 @@ const Footer = () => {
                   <rect x="4.5" y="4.5" width="15" height="15" rx="2" />
                 </svg>
               </div>
-              <span>HNY</span>
+              <span>HYN</span>
             </div>
             <div className="text-sm text-muted-foreground">
               Health Yojana Navigator

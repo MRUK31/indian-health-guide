@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,6 +35,7 @@ const formSchema = z.object({
 });
 
 const Register = () => {
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,9 +50,11 @@ const Register = () => {
     // In a real app, this would connect to an authentication service
     console.log(values);
     toast({
-      title: "Registration Successful",
-      description: "Your account has been created successfully.",
+      title: "Account Created",
+      description: "Please complete your patient profile.",
     });
+    // Redirect to patient registration form
+    navigate("/patient-registration");
   }
 
   return (

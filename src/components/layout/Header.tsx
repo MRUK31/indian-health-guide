@@ -19,7 +19,7 @@ const Header = () => {
                 <rect x="4.5" y="4.5" width="15" height="15" rx="2" />
               </svg>
             </div>
-            <span>HNY</span>
+            <span>HYN</span>
           </Link>
         </div>
 
@@ -52,35 +52,13 @@ const Header = () => {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Departments</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  <Link to="/departments/brain" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                    <div className="text-sm font-medium leading-none">Brain</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Neurosurgery, Neurology
-                    </p>
-                  </Link>
-                  <Link to="/departments/eye" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                    <div className="text-sm font-medium leading-none">Eye</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Ophthalmology
-                    </p>
-                  </Link>
-                  <Link to="/departments/ent" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                    <div className="text-sm font-medium leading-none">ENT</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Ear, Nose, Throat
-                    </p>
-                  </Link>
-                  <Link to="/departments/heart" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                    <div className="text-sm font-medium leading-none">Heart</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Angiography, Angioplasty, Cardiac surgery, Heart Transplant
-                    </p>
-                  </Link>
-                </div>
-              </NavigationMenuContent>
+              <Link to="/departments">
+                <NavigationMenuLink className={cn(
+                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                )}>
+                  Departments
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
