@@ -99,7 +99,7 @@ const DoctorsPage = () => {
   const specialtyParam = queryParams.get("specialty") || "";
   
   const [searchQuery, setSearchQuery] = useState("");
-  const [specialtyFilter, setSpecialtyFilter] = useState(specialtyParam);
+  const [specialtyFilter, setSpecialtyFilter] = useState(specialtyParam || "all");
   
   // Get unique specialties for filter dropdown
   const specialties = [...new Set(doctors.map(doctor => doctor.specialty))];
@@ -107,7 +107,7 @@ const DoctorsPage = () => {
   // Filter doctors based on search and specialty
   const filteredDoctors = doctors.filter(doctor => {
     const matchesSearch = doctor.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesSpecialty = !specialtyFilter || doctor.specialty === specialtyFilter;
+    const matchesSpecialty = specialtyFilter === "all" || doctor.specialty === specialtyFilter;
     return matchesSearch && matchesSpecialty;
   });
 
@@ -156,7 +156,7 @@ const DoctorsPage = () => {
                 <SelectValue placeholder="Filter by specialty" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Specialties</SelectItem>
+                <SelectItem value="all">All Specialties</SelectItem>
                 {specialties.map(specialty => (
                   <SelectItem key={specialty} value={specialty}>{specialty}</SelectItem>
                 ))}
